@@ -17,7 +17,8 @@ namespace CourseApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Apply(Candidate model)
         {
-            return View();
+            Repository.Add(model);
+            return View("Feedback",model);
         }
     }
 }
