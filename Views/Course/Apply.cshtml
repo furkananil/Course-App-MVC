@@ -5,6 +5,8 @@
 </div>
 
 <form method="post" asp-action="Apply">
+    <div class="text-danger" asp-validation-summary="All"></div>
+
     <div class="form-group my-2">
         <label asp-for="Email"></label>
         <input asp-for="Email" class="form-control">
@@ -35,7 +37,7 @@
     <fieldset>
         <legend>Select One Course</legend>
         <p>
-            <input id="mvc" type="radio" asp-for="SelectedCourse" value="ASP.NET Core MVC">
+            <input id="mvc" type="radio" asp-for="SelectedCourse" value="ASP.NET Core MVC" checked>
             <label>ASP.NET Core MVC</label>
         </p>
         <p>
@@ -47,19 +49,19 @@
             <label>Blazor</label>
         </p>
         <p>
-            <input id="csharp" type="radio" asp-for="SelectedCourse" value="Blazor">
+            <input id="csharp" type="radio" asp-for="SelectedCourse" value="C#">
             <label>C#</label>
         </p>
         <p>
-            <input id="java" type="radio" asp-for="SelectedCourse" value="Blazor">
+            <input id="java" type="radio" asp-for="SelectedCourse" value="Java">
             <label>Java</label>
         </p>
         <p>
-            <input id="cpp" type="radio" asp-for="SelectedCourse" value="Blazor">
+            <input id="cpp" type="radio" asp-for="SelectedCourse" value="C++">
             <label>C++</label>
         </p>
         <p>
-            <input id="c" type="radio" asp-for="SelectedCourse" value="Blazor">
+            <input id="c" type="radio" asp-for="SelectedCourse" value="C">
             <label>C</label>
         </p>
     </fieldset>

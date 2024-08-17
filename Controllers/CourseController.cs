@@ -7,7 +7,8 @@ namespace CourseApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var model = Repository.Apps;
+            return View(model);
         }
         public IActionResult Apply()
         {
@@ -17,8 +18,16 @@ namespace CourseApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Apply(Candidate model)
         {
-            Repository.Add(model);
-            return View("Feedback",model);
+            if(Repository.Apps.Any(c => c.Email.Equals(model.Email)))
+            {
+                ModelState.AddModelError("","There is an already application for you.");
+            }
+            if (ModelState.IsValid)
+            {
+                Repository.Add(model);
+                return View("Feedback", model);
+            }
+            return View();
         }
     }
 }
